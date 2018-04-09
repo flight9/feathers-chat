@@ -2,6 +2,8 @@ const authentication = require('@feathersjs/authentication');
 const jwt = require('@feathersjs/authentication-jwt');
 const local = require('@feathersjs/authentication-local');
 // const { iff, disallow } = require('feathers-hooks-common');
+const oauthApi = require('./modules/wechat/oauth_api');
+const {promisify} = require('util');
 
 
 module.exports = function (app) {
@@ -38,6 +40,13 @@ module.exports = function (app) {
           if (!user.openid) {
             const upd = await users.update(user._id, {$set: {openid}});
             console.log('After create upd_user', upd);
+
+            // Call wechat api
+            const getUserAsync = promisify(oauthApi.getUser).bind(oauthApi);
+            var profile = await getUserAsync(openid).catch(err => {
+              console.error('getUserAsync err:', err);
+            });
+            console.log('After create profile', profile);
           }
           else {
             // TODO: If a user already had a openid, bind will fail and server should throw an error
