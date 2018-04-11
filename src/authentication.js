@@ -49,8 +49,9 @@ module.exports = function (app) {
             console.log('After create profile', profile);
           }
           else {
-            // TODO: If a user already had a openid, bind will fail and server should throw an error
+            // If a user already had a openid, bind will fail and server should throw an error
             // or other method to inform the frontend.
+            throw new Error('The account has bound wechat before!');
           }
         }
 

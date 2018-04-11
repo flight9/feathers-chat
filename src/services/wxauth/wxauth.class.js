@@ -17,7 +17,7 @@ class Service {
     switch (query.type) {
     case 'url':
       // Call the wechat api
-      var callbackURL = 'http://ni9ni8.natappfree.cc/#/launch';
+      var callbackURL = 'http://r873gz.natappfree.cc/#/wx';
       var url = oauthApi.getAuthorizeURL(callbackURL,'state','snsapi_userinfo');
       result = {url};
       status = 200;
