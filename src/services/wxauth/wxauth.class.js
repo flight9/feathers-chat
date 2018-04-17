@@ -1,4 +1,5 @@
 const oauthApi = require('../../modules/wechat/oauth_api');
+const wechatApi = require('../../modules/wechat/wechat_api');
 const {promisify} = require('util');
 
 /* eslint-disable no-unused-vars */
@@ -64,6 +65,25 @@ class Service {
           };
           status = 200;
         }
+      }
+      break;
+
+    case 'jsconfig':
+      const getJsConfigAsync = promisify(wechatApi.getJsConfig).bind(wechatApi);
+      var url = query.url;
+      var param = {
+        // debug: false,
+        // jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'],
+        url
+      };
+      res = await getJsConfigAsync(param).catch(err => {
+        console.error('getJsConfigAsync err:', err);
+      });
+
+      console.log('jsconfig res:', res);
+      if (res) {
+        result = res;
+        status = 200;
       }
       break;
     }
