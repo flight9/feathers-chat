@@ -26,6 +26,7 @@
     "coverage": "npm run clean && NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- test/ --recursive --exit",
     "eslint": "eslint src/. test/. --config .eslintrc.json --fix",
     "start": "node src/",
+    "startwin": "node %NODE_DEBUG_OPTION% src/",
     "clean": "shx rm -rf test/data/",
     "mocha": "npm run clean && NODE_ENV=test mocha test/ --recursive --exit"
   },
