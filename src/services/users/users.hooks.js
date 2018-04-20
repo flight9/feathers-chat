@@ -3,6 +3,7 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 const { hashPassword, protect } = require('@feathersjs/authentication-local').hooks;
 
 const gravatar = require('../../hooks/gravatar');
+const appVersion = require('../../hooks/appversion');
 
 module.exports = {
   before: {
@@ -22,7 +23,7 @@ module.exports = {
       protect('password')
     ],
     find: [],
-    get: [],
+    get: [ appVersion() ],
     create: [],
     update: [],
     patch: [],
