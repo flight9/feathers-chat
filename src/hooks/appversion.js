@@ -2,7 +2,6 @@
 
 const urlPaths = {
   'home': 'wx/4.1.10', // default wechat app
-  // override wechat app version for some users see tri_wechat_register.module function _goto_path for branches
   'home_auc': 'wx/4.1.17',
   'home_demo': 'wx/4.1.18',
   'home_internal': 'wx/4.0.2',
