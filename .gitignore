@@ -113,3 +113,5 @@ data/
 tmp/
 /src/modules/wechat/config.js
 /src/modules/wechat/token
+/jsapi_token.txt
+/access_token.txt
