@@ -78,7 +78,6 @@ module.exports = function (options = {}) {
       console.log('Update sms record:', result);
     }
 
-
     return context;
   };
 };

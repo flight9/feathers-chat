@@ -5,12 +5,14 @@ const { hashPassword, protect } = require('@feathersjs/authentication-local').ho
 const gravatar = require('../../hooks/gravatar');
 const appVersion = require('../../hooks/appversion');
 
+const validSmsCode = require('../../hooks/valid-sms-code');
+
 module.exports = {
   before: {
     all: [],
     find: [ authenticate('jwt') ],
     get: [ authenticate('jwt') ],
-    create: [ hashPassword(), gravatar() ],
+    create: [hashPassword(), validSmsCode(), gravatar()],
     update: [ hashPassword(), authenticate('jwt') ],
     patch: [ hashPassword(), authenticate('jwt') ],
     remove: [ authenticate('jwt') ]

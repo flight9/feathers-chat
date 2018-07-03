@@ -9,6 +9,7 @@ module.exports = function (app) {
   });
 
   Model.ensureIndex({ fieldName: 'email', unique: true });
+  Model.ensureIndex({ fieldName: 'mobile', unique: true });
 
   return Model;
 };
