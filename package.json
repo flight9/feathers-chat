@@ -28,9 +28,10 @@
     "start": "node src/",
     "startwin": "node %NODE_DEBUG_OPTION% src/",
     "clean": "shx rm -rf test/data/",
-    "mocha": "npm run clean && NODE_ENV=test mocha test/ --recursive --exit"
+    "mocha": "npm run clean & set NODE_ENV=test & mocha test/ --recursive --exit"
   },
   "dependencies": {
+    "@alicloud/sms-sdk": "^1.1.1",
     "@feathersjs/authentication": "^2.0.1",
     "@feathersjs/authentication-jwt": "^2.0.0",
     "@feathersjs/authentication-local": "^1.0.2",
